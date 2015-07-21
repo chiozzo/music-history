@@ -3,7 +3,7 @@
                                 */
 
 * {
-  border: 1px dotted red;
+  /* border: 1px dotted red; */
   margin: 0;
   padding: 0;
 }
@@ -28,7 +28,7 @@ nav li {
 }
 
 ul {
-  margin: 2%;
+  margin: 1%;
 }
 
 .nav-selected {
@@ -48,7 +48,7 @@ ul {
   background-color: #4DD7FA;
   border: 3px solid black;
   float: left;
-  max-width: 47%;
+  max-width: 40%;
   padding: 2%;
 }
 
@@ -56,7 +56,6 @@ ul {
 .artist label,
 .album label {
   display: block;
-  width: 100%;
 }
 
 .genre-column {
@@ -85,7 +84,7 @@ ul {
   background-color: #FEFAC0;
   border: 3px solid black;
   float: left;
-  max-width: 80%;
+  max-width: 60%;
   margin: 0 1%;
 }
 
