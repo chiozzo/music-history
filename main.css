@@ -17,7 +17,7 @@ body {
                                 */
 
 nav {
-  background-color: yellow;
+  background-color: #FFB4B0;
   border: 3px solid black;
   margin-bottom: 1%;
 }
@@ -45,10 +45,10 @@ ul {
                                     */
 
 .filters {
-  background-color: blueviolet;
+  background-color: #4DD7FA;
   border: 3px solid black;
   float: left;
-  width: 47%;
+  max-width: 47%;
   padding: 2%;
 }
 
@@ -59,14 +59,7 @@ ul {
   width: 100%;
 }
 
-/*.filters label,
-.filters input {
-  margin: 2% 0;
-  display: block;
-}*/
-
-.genre-left,
-.genre-right {
+.genre-column {
   float: left;
 }
 
@@ -89,10 +82,11 @@ ul {
                                   */
 
 .song-list {
-  background-color: lightgreen;
+  background-color: #FEFAC0;
   border: 3px solid black;
-  float: right;
-  width: 47%;
+  float: left;
+  max-width: 80%;
+  margin: 0 1%;
 }
 
 .song-list li {
@@ -101,5 +95,5 @@ ul {
 }
 
 .song-list h3 {
-  color: darkgreen;
+  color: #785616;
 }
