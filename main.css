@@ -1,0 +1,105 @@
+                                /*
+                                WHOLE PAGE STYLE
+                                */
+
+* {
+  border: 1px dotted red;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 1%;
+}
+
+                                /*
+                                NAVIGATION STYLE
+                                */
+
+nav {
+  background-color: yellow;
+  border: 3px solid black;
+  margin-bottom: 1%;
+}
+
+nav li {
+  list-style: none;
+  display: inline;
+}
+
+ul {
+  margin: 2%;
+}
+
+.nav-selected {
+  text-decoration: none;
+  color: black;
+}
+
+.nav-seperator {
+  font-weight: 800;
+}
+
+                                    /*
+                                    FILTER STYLE
+                                    */
+
+.filters {
+  background-color: blueviolet;
+  border: 3px solid black;
+  float: left;
+  width: 47%;
+  padding: 2%;
+}
+
+.song-length label,
+.artist label,
+.album label {
+  display: block;
+  width: 100%;
+}
+
+/*.filters label,
+.filters input {
+  margin: 2% 0;
+  display: block;
+}*/
+
+.genre-left,
+.genre-right {
+  float: left;
+}
+
+.genre li {
+  list-style: none;
+}
+
+.submit-filter {
+  clear: both;
+  display: block;
+  margin: 2% auto;
+  padding: 2%;
+  font-size: 1.25em;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+
+                                  /*
+                                  SONG LIST STYLE
+                                  */
+
+.song-list {
+  background-color: lightgreen;
+  border: 3px solid black;
+  float: right;
+  width: 47%;
+}
+
+.song-list li {
+  list-style: none;
+  margin: 3% 2%;
+}
+
+.song-list h3 {
+  color: darkgreen;
+}

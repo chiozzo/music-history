@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" type="text/css" href="main.css">
+  <title>Music History</title>
+</head>
+
+<header>
+  <nav>
+    <ul>
+      <li><a href="#" class="nav-selected">View Music</a></li>
+      <li class="nav-seperator">|</li>
+      <li><a href="#">Add Music</a></li>
+      <li class="nav-seperator">|</li>
+      <li><a href="#">Profile</a></li>
+    </ul>
+  </nav>
+</header>
+<body>
+  <section class="filters">
+    <div class="song-length">
+      <label for="song-length">Song length</label>
+      <input type="range" name="song-length" />
+    </div>
+    <div class="artist">
+      <label for="artist">Artist</label>
+      <select name="artist" id="artist">
+        <option value="the-presidents-of-the-united-states-of-america">The Presidents of the United States of America</option>
+        <option value="they-might-be-giants">They Might Be Giants</option>
+        <option value="daft-punk">Daft Punk</option>
+        <option value="311">311</option>
+        <option value="beastie-boys">Beastie Boys</option>
+      </select>
+    </div>
+    <div class="album">
+      <label for="album">Album</label>
+      <select name="album" id="album">
+        <option value="the-presidents-of-the-united-states-of-america">The Presidents of the United States of America</option>
+        <option value="these-are-the-good-times-people">These Are The Good Times People</option>
+        <option value="flood">Flood</option>
+        <option value="the-else">The Else</option>
+        <option value="discovery">Discovery</option>
+        <option value="human-after-all">Human After All</option>
+        <option value="grassroots">Grassroots</option>
+        <option value="dont-tread-on-me">Don't Tread On Me</option>
+        <option value="licensed-to-ill">Licensed To Ill</option>
+        <option value="ill-communication">Ill Communication</option>
+      </select>
+    </div>
+    <div class="genre">
+      <h4>Genre</h4>
+      <ul class="genre-left">
+        <li>
+          <input type="checkbox" name="rock" id="rock">
+          <label for="rock">Rock</label>
+        </li>
+        <li>
+          <input type="checkbox" name="pop" id="pop" />
+          <label for="pop">Pop</label>
+        </li>
+        <li>
+        <input type="checkbox" name="blues" id="blues" />
+        <label for="blues">Blues</label>
+        </li>
+      </ul>
+      <ul class="genre-right">
+        <li>
+          <input type="checkbox" name="classical" id="classical" />
+          <label for="classical">Classical</label>
+        </li>
+        <li>
+          <input type="checkbox" name="jazz" id="jazz" />
+          <label for="jazz">Jazz</label>
+        </li>
+        <li>
+          <input type="checkbox" name="hip-hop" id="hip-hop" />
+          <label for="hip-hop">Hip Hop</label>
+        </li>
+      </ul>
+    </div>
+    <button type="submit" class="submit-filter">Filter</button>
+  </section>
+  <section class="song-list">
+    <ul>
+      <li>
+        <h3>Warhead</h3>
+        <p>The Presidents Of The United States | These Are The Good Times People | Rock</p>
+      </li>
+      <li>
+        <h3>Something About Us</h3>
+        <p>Daft Punk | Discovery | Electronic</p>
+      </li>
+      <li>
+        <h3>Speak Easy</h3>
+        <p>311 | Don't Tread On Me | Rock</p>
+      </li>
+      <li>
+        <h3>Your Racist Friend</h3>
+        <p>They Might Be Giants | Flood | Rock</p>
+      </li>
+    </ul>
+  </section>
+</body>
+
+</html>
