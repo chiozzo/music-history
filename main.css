@@ -3,9 +3,7 @@
                                 */
 
 * {
-  /* border: 1px dotted red; */
-  margin: 0;
-  padding: 0;
+   /*border: 1px dotted red;*/
 }
 
 body {
@@ -52,9 +50,21 @@ ul {
   padding: 2%;
 }
 
+.filters select {
+  border-radius: 5px;
+}
+
+.song-length,
+.artist,
+.album,
+.genre {
+  margin-bottom: 2%;
+}
+
 .song-length label,
 .artist label,
-.album label {
+.album label,
+.genre > label {
   display: block;
 }
 
@@ -69,7 +79,7 @@ ul {
 .submit-filter {
   clear: both;
   display: block;
-  margin: 2% auto;
+  margin: auto;
   padding: 2%;
   font-size: 1.25em;
   border: 2px solid black;
@@ -90,9 +100,19 @@ ul {
 
 .song-list li {
   list-style: none;
-  margin: 3% 2%;
+  margin: 1% 1%;
+  padding: 0;
 }
 
 .song-list h3 {
   color: #785616;
+}
+
+.song-list h3,
+.song-list p {
+  margin: 0;
+}
+
+.song-list ul {
+  padding: 0;
 }
