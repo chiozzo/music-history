@@ -3,6 +3,7 @@
                                 */
 
 * {
+  font-size: 1.1em;
    /*border: 1px dotted red;*/
 }
 
@@ -68,12 +69,24 @@ ul {
   display: block;
 }
 
+.song-length input[type="range"] {
+  width: 100%;
+}
+
+.genre p {
+  clear: both;
+}
+
 .genre-column {
   float: left;
 }
 
 .genre li {
   list-style: none;
+}
+
+.genre input[type="checkbox"] {
+  outline: 2px solid red;
 }
 
 .submit-filter {
