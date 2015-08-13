@@ -1,14 +1,38 @@
                                 /*
+                                FLEXBOX
+                                */
+
+.flex-container {
+  display: flex;
+  -webkit-flex-direction: row;
+  -webkit-flex-wrap: wrap;
+}
+
+.flex-container header {
+  flex: 1 100%;
+}
+
+.filters {
+  flex-grow: 1
+}
+
+.song-list {
+  flex-grow: 3;
+}
+
+                                /*
                                 WHOLE PAGE STYLE
                                 */
 
 * {
   font-size: 1.1em;
+  margin: 0;
+  padding: 0;
    /*border: 1px dotted red;*/
 }
 
 body {
-  margin: 1%;
+  margin: 2%;
 }
 
                                 /*
@@ -18,7 +42,8 @@ body {
 nav {
   background-color: #FFB4B0;
   border: 3px solid black;
-  margin-bottom: 1%;
+  margin-bottom: 1em;
+  /*position: fixed;*/
 }
 
 nav li {
@@ -46,8 +71,6 @@ ul {
 .filters {
   background-color: #4DD7FA;
   border: 3px solid black;
-  float: left;
-  max-width: 40%;
   padding: 2%;
 }
 
@@ -70,11 +93,7 @@ ul {
 }
 
 .song-length input[type="range"] {
-  width: 100%;
-}
-
-.genre p {
-  clear: both;
+  width: 75%;
 }
 
 .genre-column {
@@ -88,7 +107,7 @@ ul {
 .genre input[type="checkbox"] {
   outline: 3px solid black;
   padding: 0;
-  margin:0 ;
+  margin: 0;
 }
 
 .submit-filter {
@@ -108,9 +127,7 @@ ul {
 .song-list {
   background-color: #FEFAC0;
   border: 3px solid black;
-  float: left;
-  max-width: 60%;
-  margin: 0 1%;
+  margin-left: 1%;
 }
 
 .song-list li {
@@ -123,11 +140,8 @@ ul {
   color: #785616;
 }
 
-.song-list h3,
-.song-list p {
-  margin: 0;
-}
-
-.song-list ul {
-  padding: 0;
+#get-more-songs {
+  text-align: center;
+  margin: auto
+  display: block;
 }

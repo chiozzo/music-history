@@ -1,44 +1,35 @@
-var songs = [
-  "Warhead > The Presidents of the United States of America ~ These Are The Good Times People | Rock",
-  "Something About Us > Daft Punk ~ Discovery | Electronic",
-  "Speak Easy > 311 ~ Don't Tread On Me | Rock",
-  "Your Racist Friend > They Might Be Giants ~ Flood | Rock",
-];
+$(document).ready(function(){
 
-songs.unshift("Poke & Destroy > The Presidents of the United States of America ~ Love Everybody | Rock");
-songs.push("Pluto > 2 Skinnee J's ~ Supermercado | Rock");
+  //create list item for displaying song information
+  function songCallback(songsList){
+    for (var i = 0; i < songsList.songs.length; i++) {
+      var current_song = songsList.songs[i];
+      var song_display = "<li>";
+      song_display += "<h1>" + current_song.title + "</h1>";
+      song_display += "<div>by " + current_song.artist + "</div>";
+      song_display += "<div>on the album " + current_song.album + "</div>";
+      song_display += "<button class='delete-song'>Delete Song</button>";
+      song_display += "</li>";
+      $("#song-list").append(song_display);
+    }
+  }
 
-var artist = document.getElementById("artist");
+  //load initial JSON file
+  $.ajax({
+    url:"./json/songs.json"
+  }).done(songCallback);
 
-for (var i = 0; i < songs.length; i++) {
-  var song_artist = songs[i].slice(songs[i].indexOf(" > ") +  " > ".length, songs[i].indexOf("~ "));
-  // console.log(song_artist);
-  song_artist_value = song_artist.toLowerCase();
-  song_artist_value = song_artist_value.replace(" ", "-")
-  artist.innerHTML += "<option value='" + song_artist_value + "'>" + song_artist + "</option>"
-}
+  //load additional JSON file
+  $("#get-more-songs").click(function(){
+    $.ajax({
+      url:"./json/moresongs.json"
+    }).done(songCallback);
+  });
 
-var album = document.getElementById("album");
+  //click event to delete list item for song
+  $("#song-list").on("click", "button", function(){
+    console.log("remove click");
+    $(this).parent().hide();
+  });
 
-for (var i = 0; i < songs.length; i++) {
-  var song_album = songs[i].slice(songs[i].indexOf(" ~ ") + " ~ ".length, songs[i].indexOf(" | "));
-  // console.log(song_artist);
-  song_album_value = song_album.toLowerCase();
-  song_album_value = song_album_value.replace(" ", "-")
-  album.innerHTML += "<option value='" + song_album_value + "'>" + song_album + "</option>"
-}
-
-var song_list = document.getElementById("song-list");
-
-for (var i = 0; i < songs.length; i++) {
-  var song_title = songs[i].slice(0,songs[i].indexOf(" > "));
-  // console.log(song_title);
-  var song_artist = songs[i].slice(songs[i].indexOf(" > ") +  " > ".length, songs[i].indexOf("~ "));
-  // console.log(song_artist);
-  var song_album = songs[i].slice(songs[i].indexOf(" ~ ") + " ~ ".length, songs[i].indexOf(" | "));
-  // console.log(song_album);
-  var song_genre = songs[i].slice(songs[i].indexOf(" | ") + " | ".length, songs[i].length);
-  // console.log(song_genre);
-  song_list.innerHTML += "<li><h3>" + song_title + "</h3><p>" + song_artist + " | " + song_album + " | " + song_genre + "</p></li>"
-}
-
+});

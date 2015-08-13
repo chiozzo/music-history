@@ -1,0 +1,19 @@
+{
+  "songs": [
+    {
+      "title": "Walk the Line",
+      "artist": "Johnny Cash",
+      "album": "Greatest Hits"
+    },
+    {
+      "title": "Poke & Destroy",
+      "artist": "The Presidents of the United States of America",
+      "album": "Love Everybody"
+    },
+    {
+      "title": "Pluto",
+      "artist": "2 Skinnee J's",
+      "album": "Supermercado"
+    }
+  ]
+}

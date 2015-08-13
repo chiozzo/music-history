@@ -7,40 +7,32 @@
   <title>Music History</title>
 </head>
 
-<header>
-  <nav>
-    <ul>
-      <li><a href="#" class="nav-selected">View Music</a></li>
-      <li class="nav-seperator">|</li>
-      <li><a href="#">Add Music</a></li>
-      <li class="nav-seperator">|</li>
-      <li><a href="#">Profile</a></li>
-    </ul>
-  </nav>
-</header>
-<body>
-  <section class="filters">
+<body class="flex-container">
+  <header>
+    <nav class="flex-item">
+      <ul>
+        <li><a href="#" class="nav-selected">View Music</a></li>
+        <li class="nav-seperator">|</li>
+        <li><a href="#">Add Music</a></li>
+        <li class="nav-seperator">|</li>
+        <li><a href="#">Profile</a></li>
+        <!-- <li class="nav-seperator">|</li> -->
+      </ul>
+    </nav>
+  </header>
+  <section class="filters flex-item">
     <div class="song-length">
       <label for="song-length">Song length</label>
-      <input type="range" name="song-length" />
+      <input type="range" name="song-length" min="30" max="600" step="15" value="240">
     </div>
     <div class="artist">
       <label for="artist">Artist</label>
-      <select name="artist" id="artist"></select>
+      <select name="artist" id="artist">
+      </select>
     </div>
     <div class="album">
       <label for="album">Album</label>
       <select name="album" id="album">
-        <option value="the-presidents-of-the-united-states-of-america">The Presidents of the United States of America</option>
-        <option value="these-are-the-good-times-people">These Are The Good Times People</option>
-        <option value="flood">Flood</option>
-        <option value="the-else">The Else</option>
-        <option value="discovery">Discovery</option>
-        <option value="human-after-all">Human After All</option>
-        <option value="grassroots">Grassroots</option>
-        <option value="dont-tread-on-me">Don't Tread On Me</option>
-        <option value="licensed-to-ill">Licensed To Ill</option>
-        <option value="ill-communication">Ill Communication</option>
       </select>
     </div>
     <div class="genre">
@@ -73,14 +65,14 @@
           <label for="hip-hop">Hip Hop</label>
         </li>
       </ul>
-      <p> </p>
     </div>
     <button type="submit" class="submit-filter">Filter</button>
   </section>
-  <section class="song-list">
-    <ul id="song-list"> </ul>
+  <section class="song-list flex-item">
+    <ul id="song-list"></ul>
+    <button id="get-more-songs">Get More Songs</button>
   </section>
+  <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
   <script src="main.js"></script>
 </body>
-
 </html>
