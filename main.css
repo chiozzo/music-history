@@ -12,6 +12,10 @@
   flex: 1 100%;
 }
 
+.flex-item {
+  margin: .1em;
+}
+
 .filters {
   flex-grow: 1
 }
@@ -28,7 +32,7 @@
   font-size: 1.1em;
   margin: 0;
   padding: 0;
-   /*border: 1px dotted red;*/
+  /*border: 1px dotted red;*/
 }
 
 body {
@@ -43,7 +47,6 @@ nav {
   background-color: #FFB4B0;
   border: 3px solid black;
   margin-bottom: 1em;
-  /*position: fixed;*/
 }
 
 nav li {
@@ -106,8 +109,6 @@ ul {
 
 .genre input[type="checkbox"] {
   outline: 3px solid black;
-  padding: 0;
-  margin: 0;
 }
 
 .submit-filter {
@@ -116,7 +117,7 @@ ul {
   margin: auto;
   padding: 2%;
   font-size: 1.25em;
-  border: 2px solid black;
+  border: 3px solid black;
   border-radius: 5px;
 }
 
@@ -127,7 +128,6 @@ ul {
 .song-list {
   background-color: #FEFAC0;
   border: 3px solid black;
-  margin-left: 1%;
 }
 
 .song-list li {
@@ -136,12 +136,42 @@ ul {
   padding: 0;
 }
 
+.song-info {
+  width: 68%;
+}
+
 .song-list h3 {
   color: #785616;
 }
 
-#get-more-songs {
+.song-entry {
+  border: 2px solid black;
+}
+
+#get-more-songs,
+.delete-song {
   text-align: center;
-  margin: auto
+  padding: .5em;
+  background-color: lightgray;
+  border: 3px solid black;
+  border-radius: 1em;
+}
+
+#get-more-songs {
+  margin: .5em auto;
   display: block;
+}
+
+.delete-song {
+  font-size: 18px;
+}
+
+.song-info,
+.song-buttons {
+  display: inline-block;
+  margin: 1em;
+}
+
+.song-buttons {
+  width: 20%;
 }
