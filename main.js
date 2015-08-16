@@ -14,7 +14,7 @@ $(document).ready(function(){
       song_display += "<button class='delete-song'>Delete Song</button>";
       song_display += "</div>"
       song_display += "</li>";
-      $("#song-list").append(song_display);
+      $("#song-list ul").prepend(song_display);
     }
   }
 
@@ -84,9 +84,9 @@ var uniqueAlbums = [];
   });
 
   //click event to delete list item for song
-  $("#song-list").on("click", "button", function(){
+  $("#song-list").on("click", ".delete-song", function(){
     console.log("remove click");
-    $(this).parent().hide();
+    $(this).parents(".song-entry").remove();
   });
 
 });

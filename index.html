@@ -7,9 +7,9 @@
   <title>Music History</title>
 </head>
 
-<body class="flex-container">
+<body>
   <header>
-    <nav class="flex-item">
+    <nav>
       <ul>
         <li><a href="#" class="nav-selected">View Music</a></li>
         <li class="nav-seperator">|</li>
@@ -20,10 +20,10 @@
       </ul>
     </nav>
   </header>
-  <section class="filters flex-item">
+  <section class="filters">
     <div class="song-length">
       <label for="song-length">Song length</label>
-      <input type="range" name="song-length" min="30" max="600" step="15" value="240">
+      <input type="range" name="song-length" min="30" max="600" step="30" value="240">
     </div>
     <div class="artist">
       <label for="artist">Artist</label>
@@ -68,11 +68,11 @@
     </div>
     <button type="submit" class="submit-filter">Filter</button>
   </section>
-  <section class="song-list flex-item">
-    <ul id="song-list"></ul>
+  <section id="song-list" class="song-list">
     <button id="get-more-songs">Get More Songs</button>
+    <ul></ul>
   </section>
-  <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-  <script src="main.js"></script>
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="main.js"></script>
 </body>
 </html>
