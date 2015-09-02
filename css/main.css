@@ -1,62 +1,43 @@
-                                /*
-                                WHOLE PAGE STYLE
-                                */
+/*
+WHOLE PAGE STYLE
+*/
 
 * {
   font-size: 1.1em;
   margin: 0;
   padding: 0;
-  border: 1px dotted red;
+  /*border: 1px dotted red;*/
 }
 
-body > * {
-  margin: .1em;
-}
-
-body {
+/*body {
   display: flex;
   -webkit-flex-direction: row;
   -webkit-flex-wrap: wrap;
   justify-content: flex-start;
-}
+}*/
 
 header {
-  flex: 1 100%;
+  /*flex: 1 100%;*/
   background-color: #FFB4B0;
   border: 3px solid black;
 }
 
-                                /*
-                                NAVIGATION STYLE
-                                */
+/*
+NAVIGATION STYLE
+*/
 
-nav li {
-  list-style: none;
-  display: inline;
-}
 
-ul {
-  margin: 1%;
-}
 
-.nav-selected {
-  text-decoration: none;
-  color: black;
-}
-
-.nav-seperator {
-  font-weight: 800;
-}
-
-                                    /*
-                                    FILTER STYLE
-                                    */
+/*
+FILTER STYLE
+*/
 
 .filters {
-  flex: 1 1 30%;
+  /*flex: 1 1 30%;*/
   background-color: #4DD7FA;
   border: 3px solid black;
   padding: 2%;
+  /*margin: .1em;*/
 }
 
 .filters select {
@@ -67,37 +48,27 @@ ul {
   padding: .2em;
 }
 
-.song-length,
-.artist,
-.album,
-.genre {
+.song-length, .artist, .album, .genre {
   margin-bottom: 2%;
-  display:flex;
-  flex-wrap: wrap;
+  /*display:flex;
+  flex-wrap: wrap;*/
 }
 
-.song-length label,
-.artist label,
-.album label,
-.genre > label {
-  flex-basis: 100%;
+.song-length label, .artist label, .album label, .genre > label {
+  /*flex-basis: 100%;*/
 }
 
 .song-length input[type="range"] {
-  width: 75%;
-}
-
-.genre * {
-  margin: .5em;
+  /*width: 75%;*/
 }
 
 .genre li {
   list-style: none;
 }
 
-.genre input[type="checkbox"] {
+/*.genre input[type="checkbox"] {
   outline: 3px solid black;
-}
+}*/
 
 .submit-filter {
   clear: both;
@@ -109,14 +80,14 @@ ul {
   border-radius: 5px;
 }
 
-                                  /*
-                                  SONG LIST STYLE
-                                  */
+/*
+SONG LIST STYLE
+*/
 
 .song-list {
-  display: flex;
+/*  display: flex;
   flex-wrap: wrap;
-  flex: 3 3 65%;
+  flex: 3 3 65%;*/
   background-color: #FEFAC0;
   border: 3px solid black;
 }
@@ -128,7 +99,7 @@ ul {
 }
 
 .song-list ul {
-  flex: 1 0 100%;
+  /*flex: 1 0 100%;*/
 }
 
 .song-info {
@@ -167,7 +138,7 @@ ul {
 #get-more-songs {
   margin: .5em auto;
   display: block;
-  flex-basis: 100%;
+  /*flex-basis: 100%;*/
 }
 
 .delete-song {
