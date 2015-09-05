@@ -1,4 +1,4 @@
-require(["jquery", "dom-access", "populate-songs", "get-more-songs"], function($, domAccess, populateSongs, getMoreSongs) {
+define(["jquery", "dom-access", "populate-songs", "get-more-songs"], function($, domAccess, populateSongs, getMoreSongs) {
 
 
 $(document).ready(function(){
@@ -17,14 +17,14 @@ $(document).ready(function(){
       song_display += "<button class='delete-song'>Delete Song</button>";
       song_display += "</div>";
       song_display += "</li>";
-      $("#song-list ul").prepend(song_display);
+      $(song_display).prependTo(domAccess.getSongListEl());
     }
   }
 
   //CALLBACK FUNCTION to create select menu of artist options
   var uniqueArtists = [];
     function displayArtistMenu(songsList){
-      $("#artist").children().remove();
+      $(domAccess.getArtistMenuEl()).children().remove();
       for (var i = 0; i < songsList.songs.length; i++) {
         var current_song = songsList.songs[i];
         var current_artist = current_song.artist;
@@ -32,21 +32,21 @@ $(document).ready(function(){
           uniqueArtists.push(current_artist);
         }
       }
-      for (var i = 0; i < uniqueArtists.length; i++){
+      for (var j = 0; j < uniqueArtists.length; j++){
         var artist_display = "<option ";
         artist_display += "value='";
-        artist_display += uniqueArtists[i].toLowerCase().replace(/ /g,'-');
+        artist_display += uniqueArtists[j].toLowerCase().replace(/ /g,'-');
         artist_display += "'>";
-        artist_display += uniqueArtists[i];
+        artist_display += uniqueArtists[j];
         artist_display += "</option>";
-        $("#artist").append(artist_display);
+        $(artist_display).appendTo(domAccess.getArtistMenuEl());
       }
     }
 
   //CALLBACK FUNCTION to create select menu of album options
   var uniqueAlbums = [];
     function displayAlbumMenu(songsList){
-      $("#album").children().remove();
+      $(domAccess.getAlbumMenuEl()).children().remove();
       for (var i = 0; i < songsList.songs.length; i++) {
         var current_song = songsList.songs[i];
         var current_album = current_song.album;
@@ -54,14 +54,14 @@ $(document).ready(function(){
           uniqueAlbums.push(current_album);
         }
       }
-      for (var i = 0; i < uniqueAlbums.length; i++){
+      for (var j = 0; j < uniqueAlbums.length; j++){
         var album_display = "<option ";
         album_display += "value='";
-        album_display += uniqueAlbums[i].toLowerCase().replace(/ /g,'-');
+        album_display += uniqueAlbums[j].toLowerCase().replace(/ /g,'-');
         album_display += "'>";
-        album_display += uniqueAlbums[i];
+        album_display += uniqueAlbums[j];
         album_display += "</option>";
-        $("#album").append(album_display);
+        $(album_display).appendTo(domAccess.getAlbumMenuEl());
       }
     }
 
@@ -69,6 +69,8 @@ $(document).ready(function(){
   populateSongs.getSongs(displaySongList);
   populateSongs.getSongs(displayArtistMenu);
   populateSongs.getSongs(displayAlbumMenu);
+
+  console.log("does this log work?", populateSongs.logThisThing());
 
   //load additional JSON file
   $("#get-more-songs").click(function() {

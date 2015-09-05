@@ -10,6 +10,10 @@ define(["jquery"], function($) {
 			}).done(function(songsList) {
 				callBack(songsList);
 			});
+		},
+		logThisThing: function() {
+			console.log("logThisThing run");
+			return "this shouldn't be undefined";
 		}
 	};
 });

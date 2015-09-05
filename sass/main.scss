@@ -1,0 +1,126 @@
+/*
+WHOLE PAGE STYLE
+*/
+
+* {
+  font-size: 1.1em;
+  /*border: 1px dotted red;*/
+}
+
+header {
+  background-color: #FFB4B0;
+  border: 3px solid black;
+  position: absolute;
+}
+
+/*
+NAVIGATION STYLE
+*/
+
+nav li {
+  /*background-color: green;*/
+  border-radius: 4px;
+}
+
+/*
+FILTER STYLE
+*/
+
+.filters {
+  background-color: #4DD7FA;
+  border: 3px solid black;
+  padding: 2%;
+}
+
+.filters select {
+  border-radius: 5px;
+}
+
+.filters select {
+  padding: .2em;
+}
+
+.song-length, .artist, .album, .genre {
+  margin-bottom: 2%;
+}
+
+.song-length input[type="range"] {
+  /*width: 75%;*/
+}
+
+.genre li {
+  list-style: none;
+}
+
+.submit-filter {
+  clear: both;
+  display: block;
+  margin: auto;
+  padding: 2%;
+  font-size: 1.25em;
+  border: 3px solid black;
+  border-radius: 5px;
+}
+
+/*
+SONG LIST STYLE
+*/
+
+.song-list {
+  background-color: #FEFAC0;
+  border: 3px solid black;
+}
+
+.song-list li {
+  list-style: none;
+  margin: 1em;
+  padding: 0;
+}
+
+.song-info {
+  width: 68%;
+}
+
+.song-info h1 {
+  color: #785616;
+}
+
+.song-entry {
+  border: 2px solid black;
+}
+
+.song-entry:nth-child(even) {
+  background-color: #FFF5EE;
+}
+
+.song-entry:nth-child(odd) {
+  background-color: #F5FFFA;
+}
+
+#get-more-songs,
+.delete-song {
+  text-align: center;
+  padding: .5em;
+  background-color: lightgray;
+  border: 3px solid black;
+  border-radius: 1em;
+}
+
+#get-more-songs {
+  margin: .5em auto;
+  display: block;
+}
+
+.delete-song {
+  font-size: 1.5em;
+}
+
+.song-info,
+.song-buttons {
+  display: inline-block;
+  margin: auto;
+}
+
+.song-buttons {
+  width: 20%;
+}
