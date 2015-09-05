@@ -4,40 +4,32 @@ WHOLE PAGE STYLE
 
 * {
   font-size: 1.1em;
-  margin: 0;
-  padding: 0;
-  /*border: 1px dotted red;*/
+  /*border: 1px dotted red;*/*/
 }
 
-/*body {
-  display: flex;
-  -webkit-flex-direction: row;
-  -webkit-flex-wrap: wrap;
-  justify-content: flex-start;
-}*/
-
 header {
-  /*flex: 1 100%;*/
   background-color: #FFB4B0;
   border: 3px solid black;
+  position: absolute;
 }
 
 /*
 NAVIGATION STYLE
 */
 
-
+nav li {
+  /*background-color: green;*/
+  border-radius: 4px;
+}
 
 /*
 FILTER STYLE
 */
 
 .filters {
-  /*flex: 1 1 30%;*/
   background-color: #4DD7FA;
   border: 3px solid black;
   padding: 2%;
-  /*margin: .1em;*/
 }
 
 .filters select {
@@ -50,12 +42,6 @@ FILTER STYLE
 
 .song-length, .artist, .album, .genre {
   margin-bottom: 2%;
-  /*display:flex;
-  flex-wrap: wrap;*/
-}
-
-.song-length label, .artist label, .album label, .genre > label {
-  /*flex-basis: 100%;*/
 }
 
 .song-length input[type="range"] {
@@ -65,10 +51,6 @@ FILTER STYLE
 .genre li {
   list-style: none;
 }
-
-/*.genre input[type="checkbox"] {
-  outline: 3px solid black;
-}*/
 
 .submit-filter {
   clear: both;
@@ -85,9 +67,6 @@ SONG LIST STYLE
 */
 
 .song-list {
-/*  display: flex;
-  flex-wrap: wrap;
-  flex: 3 3 65%;*/
   background-color: #FEFAC0;
   border: 3px solid black;
 }
@@ -96,10 +75,6 @@ SONG LIST STYLE
   list-style: none;
   margin: 1em;
   padding: 0;
-}
-
-.song-list ul {
-  /*flex: 1 0 100%;*/
 }
 
 .song-info {
@@ -122,10 +97,6 @@ SONG LIST STYLE
   background-color: #F5FFFA;
 }
 
-.song-entry:first-of-type {
-  font-weight: bold;
-}
-
 #get-more-songs,
 .delete-song {
   text-align: center;
@@ -138,7 +109,6 @@ SONG LIST STYLE
 #get-more-songs {
   margin: .5em auto;
   display: block;
-  /*flex-basis: 100%;*/
 }
 
 .delete-song {
