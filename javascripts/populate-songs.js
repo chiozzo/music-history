@@ -8,7 +8,7 @@ define(["jquery"], function($) {
 			$.ajax({
 			  url:"../json/songs.json"
 			}).done(function(songsList) {
-				callBack(songsList);
+				callBack(songsList.songs);
 			});
 		},
 		logThisThing: function() {
