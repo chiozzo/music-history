@@ -1,4 +1,16 @@
-define(["jquery", "dom-access", "populate-songs", "get-more-songs", "bootstrap"], function($, domAccess, populateSongs, getMoreSongs) {
+requirejs.config({
+  baseURL: "./javascripts",
+  paths: {
+    "jquery": "../lib/bower_components/jquery/dist/jquery.min",
+    "hbs": "../lib/bower_components/require-handlebars-plugin/hbs",
+    "bootstrap": "../lib/bower_components/bootstrap/dist/js/bootstrap.min"
+  },
+  shim: {
+    "bootstrap": ["jquery"]
+  }
+});
+
+require(["jquery", "hbs", "dom-access", "populate-songs", "get-more-songs", "bootstrap"], function($, Handlebars, domAccess, populateSongs, getMoreSongs) {
 
 $(document).ready(function(){
 
@@ -6,8 +18,6 @@ $(document).ready(function(){
   populateSongs.getSongs(domAccess.makeSongList);
   populateSongs.getSongs(domAccess.makeArtistMenu);
   populateSongs.getSongs(domAccess.makeAlbumMenu);
-
-  console.log("does this log work?", populateSongs.logThisThing());
 
   //load additional JSON file
   $("#get-more-songs").one("click", function() {
@@ -18,8 +28,10 @@ $(document).ready(function(){
 
   //click event to delete list item for song
   $("#song-list").on("click", ".delete-song", function(){
-    console.log("remove click");
-    $(this).parents(".song-entry").remove();
+    $(this).parents(".song-entry").hide('fast', function() {
+      $(this).remove();
+    });
   });
 });
+
 });

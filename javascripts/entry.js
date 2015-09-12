@@ -1,8 +1,9 @@
 requirejs.config({
 	baseURL: "./javascripts",
 	paths: {
-		"jquery": "../bower_components/jquery/dist/jquery.min",
-		"bootstrap": "/bower_components/bootstrap/dist/js/bootstrap.min"
+		"jquery": "../lib/bower_components/jquery/dist/jquery.min",
+		"hbs": "../lib/bower_components/require-handlebars-plugin/hbs",
+		"bootstrap": "/lib/bower_components/bootstrap/dist/js/bootstrap.min"
 	},
 	shim: {
 		"bootstrap": ["jquery"]
@@ -10,6 +11,6 @@ requirejs.config({
 });
 
 
-require(["main"], function(main) {
+requirejs(["jquery", "hbs", "main"], function($, Handlebars, main) {
 
 });

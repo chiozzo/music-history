@@ -8,12 +8,8 @@ define(["jquery"], function($) {
 			$.ajax({
 			  url:"../json/songs.json"
 			}).done(function(songsList) {
-				callBack(songsList.songs);
+				callBack(songsList);
 			});
-		},
-		logThisThing: function() {
-			console.log("logThisThing run");
-			return "this shouldn't be undefined";
 		}
 	};
 });
