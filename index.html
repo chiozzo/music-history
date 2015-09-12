@@ -8,79 +8,76 @@
   <title>Music History</title>
 </head>
 
-<body class="container-fluid">
-  <header class="col-xs-12">
-
-    <nav>
-      <ul class="nav nav-pills">
-        <li><a href="#" class="active">View Music</a></li>
-        <li><a href="#">Add Music</a></li>
-        <li><a href="#">Profile</a></li>
-      </ul>
-    </nav>
-
-  </header>
+<body class="container-fluid row">
+  <nav>
+    <ul class="nav row">
+      <li class="col-sm-2 col-sm-offset-3"><a href="#" class="active">View Music</a></li>
+      <li class="col-sm-2"><a href="#">Add Music</a></li>
+      <li class="col-sm-2"><a href="#">Profile</a></li>
+    </ul>
+  </nav>
 
   <section class="filters col-sm-4">
 
-    <div class="song-length">
-      <label for="song-length" class="col-xs-12">Song length</label>
-      <input class="col-xs-12" type="range" name="song-length" min="30" max="600" step="30" value="240">
+    <div class="song-length row">
+      <label for="song-length" class="col-sm-12">Song length</label>
+      <input class="col-sm-12" type="range" name="song-length" min="30" max="600" step="30" value="240">
     </div>
 
-    <div class="artist">
-      <label for="artist" class="col-xs-12">Artist</label>
-      <select class="col-xs-12" name="artist" id="artist">
+    <div class="artist row">
+      <label for="artist" class="col-sm-12">Artist</label>
+      <select class="col-sm-12" name="artist" id="artist">
       </select>
     </div>
 
-    <div class="album">
-      <label for="album" class="col-xs-12">Album</label>
-      <select class="col-xs-12" name="album" id="album">
+    <div class="album row">
+      <label for="album" class="col-sm-12">Album</label>
+      <select class="col-sm-12" name="album" id="album">
       </select>
     </div>
 
-    <div class="genre">
-      <label class="col-xs-12">Genre</label>
+    <div class="genre row">
+      <label class="col-sm-12">Genre</label>
+      <div class="row">
+        <ul class="genre-column col-sm-6">
+          <li class="col-sm-12">
+            <input type="checkbox" name="rock" id="rock">
+            <label for="rock">Rock</label>
+          </li>
+          <li class="col-sm-12">
+            <input type="checkbox" name="pop" id="pop" />
+            <label for="pop">Pop</label>
+          </li>
+          <li class="col-sm-12">
+          <input type="checkbox" name="blues" id="blues" />
+          <label for="blues">Blues</label>
+          </li>
+        </ul>
 
-      <ul class="genre-column col-xs-6">
-        <li class="col-xs-12">
-          <input type="checkbox" name="rock" id="rock">
-          <label for="rock">Rock</label>
-        </li>
-        <li class="col-xs-12">
-          <input type="checkbox" name="pop" id="pop" />
-          <label for="pop">Pop</label>
-        </li>
-        <li class="col-xs-12">
-        <input type="checkbox" name="blues" id="blues" />
-        <label for="blues">Blues</label>
-        </li>
-      </ul>
-
-      <ul class="genre-column col-xs-6">
-        <li class="col-xs-12">
-          <input type="checkbox" name="classical" id="classical" />
-          <label for="classical">Classical</label>
-        </li>
-        <li class="col-xs-12">
-          <input type="checkbox" name="jazz" id="jazz" />
-          <label for="jazz">Jazz</label>
-        </li>
-        <li class="col-xs-12">
-          <input type="checkbox" name="hip-hop" id="hip-hop" />
-          <label for="hip-hop">Hip Hop</label>
-        </li>
-      </ul>
+        <ul class="genre-column col-sm-6">
+          <li class="col-sm-12">
+            <input type="checkbox" name="classical" id="classical" />
+            <label for="classical">Classical</label>
+          </li>
+          <li class="col-sm-12">
+            <input type="checkbox" name="jazz" id="jazz" />
+            <label for="jazz">Jazz</label>
+          </li>
+          <li class="col-sm-12">
+            <input type="checkbox" name="hip-hop" id="hip-hop" />
+            <label for="hip-hop">Hip Hop</label>
+          </li>
+        </ul>
+      </div>
     </div>
 
-    <button type="submit" class="submit-filter row">Filter</button>
+    <button type="submit" class="submit-filter">Filter</button>
 
   </section>
 
-  <section class="song-list col-xs-8">
+  <section class="song-list col-sm-8">
     <button id="get-more-songs">Get More Songs</button>
-    <ul id="song-list"></ul>
+    <div id="song-list"></div>
   </section>
 
   <script data-main="javascripts/main" src="lib/bower_components/requirejs/require.js"></script>
