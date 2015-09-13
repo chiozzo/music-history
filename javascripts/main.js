@@ -3,7 +3,7 @@ requirejs.config({
   paths: {
     "jquery": "../lib/bower_components/jquery/dist/jquery.min",
     "hbs": "../lib/bower_components/require-handlebars-plugin/hbs",
-    "bootstrap": "../lib/bower_components/bootstrap/dist/js/bootstrap.min"
+    "bootstrap": "../lib/bower_components/bootstrap/dist/js/bootstrap.min",
   },
   shim: {
     "bootstrap": ["jquery"]
@@ -14,19 +14,15 @@ require(["jquery", "hbs", "dom-access", "populate-songs", "get-more-songs", "boo
 
 $(document).ready(function(){
 
-  //load initial JSON file
-  populateSongs.getSongs(domAccess.makeSongList);
+  populateSongs.getSongs(function(songsList) {
+                          require(['hbs!../templates/songs'], function(songTemplate) {
+                            $(songTemplate(songsList)).prependTo("#song-list");
+                          });
+                        });
   populateSongs.getSongs(domAccess.makeArtistMenu);
   populateSongs.getSongs(domAccess.makeAlbumMenu);
 
-  //load additional JSON file
-  $("#get-more-songs").one("click", function() {
-    getMoreSongs.getSongs(domAccess.makeSongList);
-    getMoreSongs.getSongs(domAccess.makeArtistMenu);
-    getMoreSongs.getSongs(domAccess.makeAlbumMenu);
-  });
-
-  //click event to delete list item for song
+  //click event to delete list item for song-entry
   $("#song-list").on("click", ".delete-song", function(){
     $(this).parents(".song-entry").hide('fast', function() {
       $(this).remove();

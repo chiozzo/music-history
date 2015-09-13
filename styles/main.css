@@ -8,7 +8,8 @@ WHOLE PAGE STYLE
 NAVIGATION STYLE
 */
 nav {
-  background-color: lightgray; }
+  background-color: lightgray;
+  border-bottom: 2px solid black; }
 
 nav li {
   border-radius: 4px;
@@ -51,9 +52,6 @@ SONG LIST STYLE
 .song-list {
   background-color: white; }
 
-.song-info {
-  width: 68%; }
-
 .song-entry {
   border: 2px solid black;
   border-radius: 5px;
@@ -72,21 +70,17 @@ SONG LIST STYLE
   border-radius: 1em; }
 
 #get-more-songs {
-  margin: .5em auto;
-  display: block; }
+  margin-top: 1%; }
 
 .delete-song {
-  font-size: 1.5em;
-  display: inline;
-  margin: auto; }
+  font-size: 1.5em; }
 
 .song-info,
 .song-buttons {
-  display: inline-block;
-  margin: auto;
   padding: 1%; }
 
 .song-buttons {
-  width: 20%; }
+  text-align: center;
+  margin: 3% auto; }
 
 /*# sourceMappingURL=main.css.map */

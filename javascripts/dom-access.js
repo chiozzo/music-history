@@ -1,28 +1,6 @@
-// The dom-access module should return a reference to the DOM element in your HTML that will contain the song list.
 define(["jquery"], function($) {
 
 	return {
-		makeSongList: function(songsList) {
-/*
-			for (var i = 0; i < songsList.length; i++) {
-				var current_song = songsList[i];
-				var song_display = "<li class='song-entry'>";
-				song_display += "<div class='song-info'>";
-				song_display += "<h1>" + current_song.title + "</h1>";
-				song_display += "<div>by " + current_song.artist + "</div>";
-				song_display += "<div>on the album " + current_song.album + "</div>";
-				song_display += "</div>";
-				song_display += "<div class='song-buttons'>";
-				song_display += "<button class='delete-song'>Delete Song</button>";
-				song_display += "</div>";
-				song_display += "</li>";
-				$(song_display).prependTo("#song-list");
-			}
-*/
-			require(['hbs!../templates/songs'], function(songTemplate) {
-				$(songTemplate(songsList)).prependTo("#song-list");
-			});
-		},
 		makeArtistMenu: function(songsList) {
 			var uniqueArtists = [];
 			$("#artist").children().remove();

@@ -1,3 +1,11 @@
+@mixin vertical-align($position: relative) {
+  position: $position;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
 /*
 WHOLE PAGE STYLE
 */
@@ -13,6 +21,7 @@ NAVIGATION STYLE
 
 nav {
   background-color: lightgray;
+  border-bottom: 2px solid black;
 }
 
 nav li {
@@ -69,10 +78,6 @@ SONG LIST STYLE
   // border: 3px solid black;
 }
 
-.song-info {
-  width: 68%;
-}
-
 .song-entry {
   border: 2px solid black;
   border-radius: 5px;
@@ -94,23 +99,19 @@ SONG LIST STYLE
 }
 
 #get-more-songs {
-  margin: .5em auto;
-  display: block;
+  margin-top: 1%;
 }
 
 .delete-song {
   font-size: 1.5em;
-  display: inline;
-  margin: auto;
 }
 
 .song-info,
 .song-buttons {
-  display: inline-block;
-  margin: auto;
   padding: 1%;
 }
 
 .song-buttons {
-  width: 20%;
+  text-align: center;
+  margin: 3% auto;
 }
