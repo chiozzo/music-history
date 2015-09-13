@@ -10,7 +10,7 @@ requirejs.config({
   }
 });
 
-require(["jquery", "hbs", "dom-access", "populate-songs", "get-more-songs", "bootstrap"], function($, Handlebars, domAccess, populateSongs, getMoreSongs) {
+require(["jquery", "hbs", "dom-access", "populate-songs", "bootstrap"], function($, Handlebars, domAccess, populateSongs) {
 
 $(document).ready(function(){
 
