@@ -25,9 +25,9 @@ $(document).ready(function(){
     //   $(songTemplate(songsObject)).prependTo("#song-list");
     // });
 
-    // var uniqueArtists = getUnique(songsObject.songs).uniqueArtists;
-    var uniqueArtists = _.chain(songsObject.songs).uniq("artist").pluck("artist").value();
-    // console.log("uniqueArtists", uniqueArtists);
+    var uniqueArtists = getUnique(songsObject.songs).uniqueArtists;
+    // var uniqueArtists = _.chain(songsObject.songs).uniq("artist").pluck("artist").value();
+    console.log("uniqueArtists array", uniqueArtists);
 
     $("#artistMenu").html(hbsTemplateLoad.artistTemplate({artist:uniqueArtists}));
     // require(["hbs!../templates/artistmenu"], function(artistTemplate) {
