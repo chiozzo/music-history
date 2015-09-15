@@ -27,9 +27,10 @@ $(document).ready(function(){
 
     var uniqueArtists = getUnique(songsObject.songs).uniqueArtists;
     // var uniqueArtists = _.chain(songsObject.songs).uniq("artist").pluck("artist").value();
-    console.log("uniqueArtists array", uniqueArtists);
+    // console.log("uniqueArtists array", uniqueArtists);
 
-    $("#artistMenu").html(hbsTemplateLoad.artistTemplate({artist:uniqueArtists}));
+    $("#artistMenu").html(hbsTemplateLoad.artistTemplate({artists:uniqueArtists}));
+
     // require(["hbs!../templates/artistmenu"], function(artistTemplate) {
     //   console.log("build artist menu");
     //   $("#artistMenu").html(artistTemplate(songsObject));
@@ -39,7 +40,7 @@ $(document).ready(function(){
     // var uniqueAlbums = _.chain(songsObject.songs).uniq("album").pluck("album").value();
     // console.log("uniqueAlbums", uniqueAlbums);
 
-    $("#albumMenu").html(hbsTemplateLoad.albumTemplate(songsObject));
+    $("#albumMenu").html(hbsTemplateLoad.albumTemplate({albums:uniqueAlbums}));
     // require(["hbs!../templates/albummenu"], function(albumTemplate) {
     //   console.log("build album menu");
     //   $("#albumMenu").append(albumTemplate(songsObject));

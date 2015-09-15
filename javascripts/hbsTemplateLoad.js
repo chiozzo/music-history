@@ -7,7 +7,7 @@ function(handlebars, songTemplate, artistTemplate, albumTemplate) {
 			return songTemplate(firebaseObject);
 		},
 		artistTemplate: function(firebaseObject) {
-			console.log("artist template returned");
+			// console.log("artist template returned");
 			return artistTemplate(firebaseObject);
 		},
 		albumTemplate: function (firebaseObject) {
