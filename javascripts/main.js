@@ -8,47 +8,42 @@ requirejs.config({
     "firebase": "../lib/bower_components/firebase/firebase"
   },
   shim: {
-    "bootstrap": ["jquery"]
+    "bootstrap": ["jquery"],
+    "firebase": {
+      exports: "Firebase"
+    }
   }
 });
 
-require(["jquery", "lodash", "firebase", "hbs", "firebaseAccess", "getUnique", "hbsTemplateLoad", "bootstrap"],
- function($, _, firebase, handlebars, firebaseAccess, getUnique, hbsTemplateLoad) {
+require(["jquery", "lodash", "firebase", "hbs", "getUnique", "hbsTemplateLoad", "bootstrap"],
+ function($, _, firebase, handlebars, getUnique, hbsTemplateLoad) {
 
 $(document).ready(function(){
 
+  var myFirebaseRef = new Firebase("https://blinding-heat-7542.firebaseio.com/");
 
-  firebaseAccess.getSongs(function(songsObject) {
+  myFirebaseRef.child("songs").on("value", function(snapshot) {
 
-    $("#song-list").html(hbsTemplateLoad.songTemplate(songsObject));
-    // require(['hbs!../templates/songs'], function(songTemplate) {
-    //   $(songTemplate(songsObject)).prependTo("#song-list");
-    // });
+  var songs = snapshot.val();
+  // console.log("firebase songs", songs);
 
-    var uniqueArtists = getUnique(songsObject.songs).uniqueArtists;
-    // var uniqueArtists = _.chain(songsObject.songs).uniq("artist").pluck("artist").value();
-    // console.log("uniqueArtists array", uniqueArtists);
+  allSongsArray = [];
 
-    $("#artistMenu").html(hbsTemplateLoad.artistTemplate({artists:uniqueArtists}));
+  for (var key in songs) {
+    allSongsArray[allSongsArray.length] = songs[key];
+  }
 
-    // require(["hbs!../templates/artistmenu"], function(artistTemplate) {
-    //   console.log("build artist menu");
-    //   $("#artistMenu").html(artistTemplate(songsObject));
-    // });
+  $("#song-list").html(hbsTemplateLoad.songTemplate({songs:songs}));
 
-    var uniqueAlbums = getUnique(songsObject.songs).uniqueAlbums;
-    // var uniqueAlbums = _.chain(songsObject.songs).uniq("album").pluck("album").value();
-    // console.log("uniqueAlbums", uniqueAlbums);
+  var uniqueArtists = getUnique(allSongsArray).uniqueArtists;
+  // console.log("uniqueArtists array", uniqueArtists);
+  $("#artistMenu").html(hbsTemplateLoad.artistTemplate({artists:uniqueArtists}));
 
-    $("#albumMenu").html(hbsTemplateLoad.albumTemplate({albums:uniqueAlbums}));
-    // require(["hbs!../templates/albummenu"], function(albumTemplate) {
-    //   console.log("build album menu");
-    //   $("#albumMenu").append(albumTemplate(songsObject));
-    // });
+  var uniqueAlbums = getUnique(allSongsArray).uniqueAlbums;
+  // console.log("uniqueAlbums", uniqueAlbums);
+  $("#albumMenu").html(hbsTemplateLoad.albumTemplate({albums:uniqueAlbums}));
 
   });
-
-
 
 
   //click event to delete list item for song-entry
