@@ -4,72 +4,65 @@
 <head>
   <meta charset="UTF-8" />
   <link rel="stylesheet" href="lib/bower_components/bootstrap/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="styles/main.css">
+  <link rel="stylesheet" type="text/css" href="lib/bower_components/bootstrap-material-design/dist/css/material-fullpalette.min.css">
+  <!-- <link rel="stylesheet" type="text/css" href="styles/main.css"> -->
+  <link rel="stylesheet" type="text/css" href="styles/style.css">
   <title>Music History</title>
 </head>
 
-<body class="container-fluid row">
-  <nav>
-    <ul class="nav row">
-      <li class="col-md-2 col-md-offset-3"><a href="#" class="active">View Music</a></li>
-      <li class="col-md-2"><a href="song-form.html">Add Music</a></li>
-      <li class="col-md-2"><a href="#">Profile</a></li>
+<body class="container-fluid">
+
+<div class="navbar navbar-warning">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="javascript:void(0)">Music History</a>
+  </div>
+  <div class="navbar-collapse collapse navbar-responsive-collapse">
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="javascript:void(0)">Song List</a></li>
+      <li><a href="song-form.html">Add Song</a></li>
     </ul>
-  </nav>
+  </div>
+</div>
 
-  <section class="filters col-md-4">
+  <section class="filters col-md-2">
 
+<!--
     <div class="song-length row">
       <label for="song-length" class="col-md-12">Song length</label>
-      <input class="col-md-12" type="range" name="song-length" min="30" max="600" step="30" value="240">
     </div>
-
-    <div class="artist row">
-      <label for="artist" class="col-md-12">Artist</label>
-      <select class="col-md-12" name="artist" id="artistMenu"> </select>
+    <div class="sample1">
+      <div class="slider shor slider-material-orange" id="slider"></div>
     </div>
+ -->
 
-    <div class="album row">
-      <label for="album" class="col-md-12">Album</label>
-      <select class="col-md-12" name="album" id="albumMenu"> </select>
-    </div>
-
-    <div class="genre row">
-      <label class="col-md-12">Genre</label>
-      <div class="row">
-        <ul class="genre-column col-md-6">
-          <li class="col-md-12">
-            <input type="checkbox" name="rock" id="rock">
-            <label for="rock">Rock</label>
-          </li>
-          <li class="col-md-12">
-            <input type="checkbox" name="pop" id="pop" />
-            <label for="pop">Pop</label>
-          </li>
-          <li class="col-md-12">
-          <input type="checkbox" name="blues" id="blues" />
-          <label for="blues">Blues</label>
-          </li>
-        </ul>
-
-        <ul class="genre-column col-md-6">
-          <li class="col-md-12">
-            <input type="checkbox" name="classical" id="classical" />
-            <label for="classical">Classical</label>
-          </li>
-          <li class="col-md-12">
-            <input type="checkbox" name="jazz" id="jazz" />
-            <label for="jazz">Jazz</label>
-          </li>
-          <li class="col-md-12">
-            <input type="checkbox" name="hip-hop" id="hip-hop" />
-            <label for="hip-hop">Hip Hop</label>
-          </li>
-        </ul>
+     <section class="col-md-12">
+      <div class="btn-group">
+        <button type="button" class="btn btn-default">Artist</button>
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <span class="caret"></span>
+          <span class="sr-only">Toggle Dropdown</span>
+        </button>
+        <ul class="dropdown-menu" id="artistMenu"></ul>
       </div>
-    </div>
+    </section>
 
-    <button type="submit" class="submit-filter">Filter</button>
+    <section class="col-md-12">
+      <div class="btn-group">
+        <button type="button" class="btn btn-default">Album</button>
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <span class="caret"></span>
+          <span class="sr-only">Toggle Dropdown</span>
+        </button>
+        <ul class="dropdown-menu" id="albumMenu"></ul>
+      </div>
+    </section>
+
+    <a class="btn btn-warning btn-raised">Filter</a>
 
   </section>
 

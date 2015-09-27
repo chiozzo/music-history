@@ -2,11 +2,12 @@
 <div class="song-entry row">
 	<div class="song-info col-md-8">
 		<h1>{{title}}</h1>
-		<div>by {{artist}}</div>
-		<div>on the album {{album}}</div>
+		<div>by <b>{{artist}}</b></div>
+		<div>on the album <b>{{album}}</b></div>
+		<div>The key for this song is <b>{{@key}}</b></div>
 	</div>
-	<div class="song-buttons col-md-4">
-		<button class="delete-song">Delete Button</button>
+	<div class="song-buttons col-md-5">
+		<a class="delete-song btn btn-warning btn-raised" id="delete#{{@key}}">Delete Song</a>
 	</div>
 </div>
 {{/each}}
