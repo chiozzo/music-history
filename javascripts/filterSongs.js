@@ -36,8 +36,6 @@ define(["jquery", "lodash", "hbsTemplateLoad", "getUnique"], function($, _, hbsT
 	    $("#song-list").html(hbsTemplateLoad.songTemplate({songs:filteredSongList}));
 		},
 		showAll: function(songs, allSongsArray) {
-			console.log("songs", songs);
-			console.log("allSongsArray", allSongsArray);
 	    //populate #song-list
 	    $("#song-list").html(hbsTemplateLoad.songTemplate({songs:songs}));
 

@@ -59,13 +59,13 @@ $(document).ready(function(){
 
   //click event to filter based on artist
   $("#artistMenu").on("click", "li > a", function() {
-    var selectedArtist = $(this).html();
+    var selectedArtist = $(this).text();
     filterSongs.byArtist(selectedArtist, allSongsArray);
   });
 
   //click event to filter based on artist
   $("#albumMenu").on("click", "li > a", function() {
-    var selectedAlbum = $(this).html();
+    var selectedAlbum = $(this).text();
     filterSongs.byAlbum(selectedAlbum, allSongsArray);
   });
 
