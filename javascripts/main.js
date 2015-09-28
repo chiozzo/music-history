@@ -18,8 +18,8 @@ requirejs.config({
   }
 });
 
-require(["jquery", "lodash", "firebase", "hbs", "getUnique", "hbsTemplateLoad", "noslider", "bootstrap", "material"],
- function($, _, firebase, handlebars, getUnique, hbsTemplateLoad, noUiSlider) {
+require(["jquery", "lodash", "firebase", "hbs", "noslider", "getUnique", "hbsTemplateLoad", "firebaseAccess", "filterSongs", "bootstrap", "material"],
+ function($, _, firebase, handlebars, noUiSlider, getUnique, hbsTemplateLoad, firebaseAccess, filterSongs) {
 
 $(document).ready(function(){
 
@@ -39,50 +39,45 @@ $(document).ready(function(){
   });
 */
 
+  //create Firebase reference
   var myFirebaseRef = new Firebase("https://blinding-heat-7542.firebaseio.com/");
+  var songs;
+  var allSongsArray = [];
 
+  //Event handler on value change of "songs" key in firebase reference
   myFirebaseRef.child("songs").on("value", function(mycurrentstuff) {
+    songs = mycurrentstuff.val();
 
-  var songs = mycurrentstuff.val();
+    //convert object of object into array of objects
+    allSongsArray = [];
+    for (var currentkey in songs) {
+      allSongsArray.push(songs[currentkey]);
+    }
 
-  allSongsArray = [];
-
-  for (var currentkey in songs) {
-    allSongsArray[allSongsArray.length] = songs[currentkey];
-  }
-
-  $("#song-list").html(hbsTemplateLoad.songTemplate({songs:songs}));
-
-  var uniqueArtists = getUnique(allSongsArray).uniqueArtists;
-  $("#artistMenu").html(hbsTemplateLoad.artistTemplate({artists:uniqueArtists}));
-
-  var uniqueAlbums = getUnique(allSongsArray).uniqueAlbums;
-  $("#albumMenu").html(hbsTemplateLoad.albumTemplate({albums:uniqueAlbums}));
-
+    filterSongs.showAll(songs, allSongsArray);
   });
 
-  //click event to delete list item for song-entry
+  //click event to filter based on artist
+  $("#artistMenu").on("click", "li > a", function() {
+    var selectedArtist = $(this).html();
+    filterSongs.byArtist(selectedArtist, allSongsArray);
+  });
+
+  //click event to filter based on artist
+  $("#albumMenu").on("click", "li > a", function() {
+    var selectedAlbum = $(this).html();
+    filterSongs.byAlbum(selectedAlbum, allSongsArray);
+  });
+
+  //click event to clear filters
+  $("#clearFilter").on("click", function() {
+    filterSongs.showAll(songs, allSongsArray);
+  });
+
+  //click event to delete list item for song-entry from database
   $("#song-list").on("click", ".delete-song", function(){
-    $(this).parents(".song-entry").hide('fast', function() {
-      $(this).remove();
-    });
-    console.log(this.id, "https://blinding-heat-7542.firebaseio.com/songs/" + this.id.split("#")[1] + ".json");
-    var deleteRef = new Firebase("https://blinding-heat-7542.firebaseio.com/songs/" + this.id.split("#")[1]);
-    console.log("deleteRef", deleteRef);
-    deleteRef.remove(function() {
-      console.log("the song has been deleted");
-    });
-/*
-    $.ajax({
-      url: "https://blinding-heat-7542.firebaseio.com/songs/" + this.id.split("#")[1] + ".json",
-      method: "DELETE",
-      contentType: "application/json"
-    }).done(function(song) {
-      console.log(song, "has been deleted");
-    }).fail(function(error) {
-      console.log(error);
-    });
-*/
+    var thisSong = this;
+    firebaseAccess.deleteSong(myFirebaseRef, thisSong);
   });
 });
 });
