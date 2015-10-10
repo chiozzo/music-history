@@ -6,44 +6,65 @@ requirejs.config({
     "bootstrap": "../lib/bower_components/bootstrap/dist/js/bootstrap.min",
     "lodash": "../lib/bower_components/lodash/lodash.min",
     "firebase": "../lib/bower_components/firebase/firebase",
-    "material": "../lib/bower_components/bootstrap-material-design/dist/js/material.min",
-    "noslider": "../lib/noUiSlider.8.0.2/nouislider.min"
+    "material": "../lib/bower_components/bootstrap-material-design/dist/js/material.min"
   },
   shim: {
     "bootstrap": ["jquery"],
-    "material": ["bootstrap", "noslider"],
+    "material": ["bootstrap"],
     "firebase": {
       exports: "Firebase"
     }
   }
 });
 
-require(["jquery", "lodash", "firebase", "hbs", "noslider", "getUnique", "hbsTemplateLoad", "firebaseAccess", "filterSongs", "bootstrap", "material"],
- function($, _, firebase, handlebars, noUiSlider, getUnique, hbsTemplateLoad, firebaseAccess, filterSongs) {
+require(["jquery", "lodash", "firebase", "hbs", "getUnique", "hbsTemplateLoad", "firebaseAccess", "filterSongs", "bootstrap", "material"],
+ function($, _, firebase, handlebars, getUnique, hbsTemplateLoad, firebaseAccess, filterSongs) {
 
 $(document).ready(function(){
 
   //initialize Material design with Bootstrap
   $.material.init();
 
-/*
-  var slider = document.getElementById('slider');
-
-  noUiSlider.create(slider, {
-    start: [20, 80],
-    connect: true,
-    range: {
-      'min': 0,
-      'max': 100
-    }
-  });
-*/
-
   //create Firebase reference
   var myFirebaseRef = new Firebase("https://blinding-heat-7542.firebaseio.com/");
   var songs;
   var allSongsArray = [];
 
+  //create new user upon registration
+  myFirebaseRef.createUser({
+    email: "mncross@gmail.com",
+    password: "abc123"
+  }, function(error, userData) {
+    if (error) {
+      console.log("Error creating user:", error);
+    } else {
+      console.log("Successfully created user account with uid: ", userData.uid);
+    }
+  });
+
+  //log in new user
+  var currentUser;
+  $("#signInButton").on('click', function() {
+    console.log("username", $("#usernameInput").val());
+    console.log("password", $("#passwordInput").val());
+    myFirebaseRef.authWithPassword({
+      email: $("#usernameInput").val(),
+      password: $("#passwordInput").val()
+    }, function(error, authData) {
+      if (error) {
+        console.log("Login Failed!", error);
+      } else {
+        console.log("Authenticated successfully with payload:", authData);
+        currentUser = authData;
+        console.log("currentUser", currentUser);
+      }
+    }, {
+        remember: "sessionOnly"
+    });
+
+  });
+
+  console.log(currentUser.uid);
   //Event handler on value change of "songs" key in firebase reference
   myFirebaseRef.child("songs").on("value", function(mycurrentstuff) {
     songs = mycurrentstuff.val();
