@@ -6,7 +6,8 @@ requirejs.config({
     "bootstrap": "../lib/bower_components/bootstrap/dist/js/bootstrap.min",
     "lodash": "../lib/bower_components/lodash/lodash.min",
     "firebase": "../lib/bower_components/firebase/firebase",
-    "material": "../lib/bower_components/bootstrap-material-design/dist/js/material.min"
+    "material": "../lib/bower_components/bootstrap-material-design/dist/js/material.min",
+    "q": "../lib/bower_components/q/q"
   },
   shim: {
     "bootstrap": ["jquery"],
@@ -17,30 +18,30 @@ requirejs.config({
   }
 });
 
-require(["jquery", "lodash", "firebase", "hbs", "authenticate", "getUnique", "hbsTemplateLoad", "firebaseAccess", "filterSongs", "bootstrap", "material"],
- function($, _, firebase, handlebars, authenticate, getUnique, hbsTemplateLoad, firebaseAccess, filterSongs) {
+require(["jquery", "lodash", "q", "firebase", "hbs", "bootstrap", "material", "authenticate", "hbsTemplateLoad", "firebaseAccess", "filterSongs"],
+ function($, _, q, firebase, handlebars, bootstrap, material, authenticate, hbsTemplateLoad, firebaseAccess, filterSongs) {
 
 $(document).ready(function(){
 
   //initialize Material design with Bootstrap
   $.material.init();
 
-  //create Firebase reference
   var firebaseRef = new Firebase("https://blinding-heat-7542.firebaseio.com/");
   var songs;
   var allSongsArray = [];
 
-  authenticate.loginUser("mncross@gmail.com", "abc123");
+  // authenticate.loginUser("mncross@gmail.com", "abc123");
 
-  //Event handler on value change of "songs" key in firebase reference
   firebaseRef.child("songs").on("value", function(mycurrentstuff) {
     songs = mycurrentstuff.val();
-
-    //convert object of object into array of objects
     allSongsArray = _.values(songs);
-
     filterSongs.showAll(songs, allSongsArray);
   });
+
+  // $(document).on("click", "#add-song", function() {
+  //   $("#new-artist").focus();
+  //   firebaseAccess.addSong();
+  // });
 
   //click event to filter based on artist
   $("#artistMenu").on("click", "li > a", function() {
@@ -61,8 +62,9 @@ $(document).ready(function(){
 
   //click event to delete list item for song-entry from database
   $("#song-list").on("click", ".delete-song", function(){
-    var thisSong = this;
-    firebaseAccess.deleteSong(firebaseRef, thisSong);
+    var thisSong = $(this).attr("songid");
+    console.log("thisSong", thisSong);
+    firebaseAccess.deleteSong(thisSong);
   });
 });
 });

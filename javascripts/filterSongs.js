@@ -1,4 +1,4 @@
-define(["jquery", "lodash", "hbsTemplateLoad", "getUnique"], function($, _, hbsTemplateLoad, getUnique) {
+define(["jquery", "lodash", "hbsTemplateLoad"], function($, _, hbsTemplateLoad) {
 
 	return {
 		byArtist: function(selectedArtist, allSongsArray) {
@@ -40,11 +40,13 @@ define(["jquery", "lodash", "hbsTemplateLoad", "getUnique"], function($, _, hbsT
 	    $("#song-list").html(hbsTemplateLoad.songTemplate({songs:songs}));
 
 	    //populate #artistMenu
-	    var uniqueArtists = getUnique(allSongsArray).uniqueArtists;
+	    //pass in an array of objects, pluck the value of the defined key (artist) into an array, and make that array unique
+			var uniqueArtists = _.chain(allSongsArray).pluck("artist").uniq().value();
 	    $("#artistMenu").html(hbsTemplateLoad.artistTemplate({artists:uniqueArtists}));
 
 	    //populate #albumMenu
-	    var uniqueAlbums = getUnique(allSongsArray).uniqueAlbums;
+	    //pass in an array of objects, exclude any object from the new array that already contains a matching values of the defined key, pluck the value of the defined key (album) into an array
+			var uniqueAlbums = _.chain(allSongsArray).uniq("album").pluck("album").value();
 	    $("#albumMenu").html(hbsTemplateLoad.albumTemplate({albums:uniqueAlbums}));
 		}
 	};
