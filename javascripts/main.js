@@ -7,10 +7,12 @@ requirejs.config({
     "lodash": "../lib/bower_components/lodash/lodash.min",
     "firebase": "../lib/bower_components/firebase/firebase",
     "material": "../lib/bower_components/bootstrap-material-design/dist/js/material.min",
+    "dropdownjs": "../lib/bower_components/dropdown.js/jquery.dropdown",
     "q": "../lib/bower_components/q/q"
   },
   shim: {
     "bootstrap": ["jquery"],
+    "dropdownjs": ["jquery"],
     "material": ["bootstrap"],
     "firebase": {
       exports: "Firebase"
@@ -18,13 +20,14 @@ requirejs.config({
   }
 });
 
-require(["jquery", "lodash", "q", "firebase", "hbs", "bootstrap", "material", "authenticate", "hbsTemplateLoad", "firebaseAccess", "filterSongs"],
- function($, _, q, firebase, handlebars, bootstrap, material, authenticate, hbsTemplateLoad, firebaseAccess, filterSongs) {
+require(["jquery", "lodash", "q", "firebase", "hbs", "bootstrap", "material", "dropdownjs", "authenticate", "hbsTemplateLoad", "firebaseAccess", "filterSongs"],
+ function($, _, q, firebase, handlebars, bootstrap, material, dropdownjs, authenticate, hbsTemplateLoad, firebaseAccess, filterSongs) {
 
 $(document).ready(function(){
 
   //initialize Material design with Bootstrap
   $.material.init();
+  $(".select").dropdown({ "autoinit" : ".select" });
 
   var firebaseRef = new Firebase("https://blinding-heat-7542.firebaseio.com/");
   var songs;
@@ -37,6 +40,7 @@ $(document).ready(function(){
     allSongsArray = _.values(songs);
     filterSongs.showAll(songs, allSongsArray);
   });
+
 
   $(".modal-footer").on("click", "#add-song", function() {
     if($("#new-artist").val() == "") {
@@ -55,13 +59,13 @@ $(document).ready(function(){
   });
 
   //click event to filter based on artist
-  $("#artistMenu").on("click", "li > a", function() {
+  $("#artistMenu").on("click", "option", function() {
     var selectedArtist = $(this).text();
     filterSongs.byArtist(selectedArtist, allSongsArray);
   });
 
   //click event to filter based on artist
-  $("#albumMenu").on("click", "li > a", function() {
+  $("#albumMenu").on("click", "option", function() {
     var selectedAlbum = $(this).text();
     filterSongs.byAlbum(selectedAlbum, allSongsArray);
   });
