@@ -38,10 +38,21 @@ $(document).ready(function(){
     filterSongs.showAll(songs, allSongsArray);
   });
 
-  // $(document).on("click", "#add-song", function() {
-  //   $("#new-artist").focus();
-  //   firebaseAccess.addSong();
-  // });
+  $(".modal-footer").on("click", "#add-song", function() {
+    if($("#new-artist").val() == "") {
+      alert("You need to enter an artist");
+    } else if ($("#new-album").val() == "") {
+      alert("You need to enter an album");
+    } else if ($("#new-song").val() == "") {
+      alert("You need to enter a song title");
+    } else {
+      console.log("add song button clicked");
+      firebaseAccess.addSong();
+    }
+    $("#new-artist").val("");
+    $("#new-album").val("");
+    $("#new-song").val("");
+  });
 
   //click event to filter based on artist
   $("#artistMenu").on("click", "li > a", function() {

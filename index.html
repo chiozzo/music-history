@@ -12,19 +12,50 @@
 
 <body class="container-fluid">
 
-<div class="navbar navbar-warning">
+<!-- Modal for add song form -->
+
+<div class="col-md-offset-3 col-md-6">
+  <div id="addSongModal" class="modal fade" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">Add New Music</h4>
+        </div>
+        <div class="modal-body">
+          <div class="new-song">
+            <div class="form-group has-warning new-artist">
+              <input type="text" class="form-control floating-label" id="new-artist" placeholder="Enter new artist here">
+            </div>
+            <div class="form-group has-warning new-album">
+              <input type="text" class="form-control floating-label" id="new-album" placeholder="Enter new album here">
+            </div>
+            <div class="form-group has-warning new-title">
+              <input type="text" class="form-control floating-label" id="new-song" placeholder="Enter new song title here">
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-material-orange btn-raised" id="add-song" data-dismiss="modal">Add Song</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--END Modal for add song form -->
+
+
+<div class="navbar navbar-material-orange">
   <div class="navbar-header">
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="javascript:void(0)">Music History</a>
   </div>
   <div class="navbar-collapse collapse navbar-responsive-collapse">
     <ul class="nav navbar-nav">
-      <li class="active"><a href="javascript:void(0)">Song List</a></li>
-      <li><a href="song-form.html">Add Song</a></li>
+      <li><a class="navbar-right btn btn-large btn-black btn-raised" data-toggle="modal" data-target="#addSongModal">Add Song</a></li>
     </ul>
   </div>
 </div>
@@ -62,7 +93,7 @@
       </div>
     </section>
 
-    <button class="btn btn-warning btn-raised col-md-offset-2 col-md-8" id="clearFilter">Clear Filter</button>
+    <button class="btn btn-material-orange btn-raised col-md-offset-2 col-md-8" id="clearFilter">Clear Filter</button>
 
   </section>
 

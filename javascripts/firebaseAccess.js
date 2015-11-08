@@ -34,7 +34,8 @@ define(["jquery", "firebase"], function($, firebase) {
 				method: "POST",
 				data: JSON.stringify(newSong)
 			}).done(function(addedSong) {
-				console.log("addedSong", addedSong);
+			}).fail(function(){
+				console.log("Add song failed");
 			});
 		}
 	};
