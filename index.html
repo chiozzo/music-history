@@ -53,45 +53,26 @@
     </div>
     <div class="navbar-collapse collapse navbar-responsive-collapse">
       <ul class="nav navbar-nav">
-        <li><a class="navbar-right btn btn-large btn-black btn-raised" data-toggle="modal" data-target="#addSongModal">Add Song</a></li>
+        <div id='cssmenu'>
+        <ul>
+           <li class="navbar-right btn btn-large btn-black btn-raised" data-toggle="modal" data-target="#addSongModal"><a><span>Add Song</span></a></li>
+           <li class='active has-sub'><a><span>Artist</span></a>
+              <ul id="artistMenu"></ul>
+           </li>
+           <li class='active has-sub'><a><span>Album</span></a>
+              <ul id="albumMenu"></ul>
+           </li>
+           <li class="btn btn-black btn-raised last" id="clearFilter"><a><span>Clear Filter</span></a></li>
+        </ul>
+        </div>
       </ul>
-      <nav id="primary_nav_wrap">
-      <ul>
-        <li><a>Artist</a>
-          <ul id="artistMenu">
-          </ul>
-        </li>
-        <li><a>Album</a>
-          <ul id="albumMenu">
-          </ul>
-        </li>
-      </ul>
-      </nav>
-      <button class="btn btn-black btn-raised col-md-offset-2 col-md-2" id="clearFilter">Clear Filter</button>
     </div>
   </div>
 </div>
+<section class="song-list col-md-offset-1 col-md-10">
+  <div id="song-list"></div>
+</section>
 
-
-<!--
-<div class="row">
-  <section class="filters col-md-3">
-    <div class="song-length row">
-      <label for="song-length" class="col-md-12">Song length</label>
-    </div>
-    <div class="sample1">
-      <div class="slider shor slider-material-orange" id="slider"></div>
-    </div>
-    <select id="artistMenu" class="form-control select" placeholder="Artist"></select>
-    <select id="albumMenu" class="form-control select" placeholder="Album"></select>
-  </section>
- -->
-
-  <section class="song-list col-md-offset-1 col-md-10">
-    <div id="song-list"></div>
-  </section>
-</div>
-
-  <script data-main="javascripts/main" src="lib/bower_components/requirejs/require.js"></script>
+<script data-main="javascripts/main" src="lib/bower_components/requirejs/require.js"></script>
 </body>
 </html>
