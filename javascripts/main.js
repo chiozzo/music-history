@@ -27,7 +27,7 @@ $(document).ready(function(){
 
   //initialize Material design with Bootstrap
   $.material.init();
-  $(".select").dropdown({ "autoinit" : ".select" });
+  // $(".select").dropdown({ "autoinit" : ".select" });
 
   var firebaseRef = new Firebase("https://blinding-heat-7542.firebaseio.com/");
   var songs;
@@ -59,13 +59,14 @@ $(document).ready(function(){
   });
 
   //click event to filter based on artist
-  $("#artistMenu").on("click", "option", function() {
+  $("#artistMenu").on("click", "li > a", function() {
     var selectedArtist = $(this).text();
+    console.log("selectedArtist", selectedArtist);
     filterSongs.byArtist(selectedArtist, allSongsArray);
   });
 
   //click event to filter based on artist
-  $("#albumMenu").on("click", "option", function() {
+  $("#albumMenu").on("click", "li > a", function() {
     var selectedAlbum = $(this).text();
     filterSongs.byAlbum(selectedAlbum, allSongsArray);
   });
