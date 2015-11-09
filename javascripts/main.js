@@ -20,8 +20,8 @@ requirejs.config({
   }
 });
 
-require(["jquery", "lodash", "q", "firebase", "hbs", "bootstrap", "material", "dropdownjs", "authenticate", "hbsTemplateLoad", "firebaseAccess", "filterSongs"],
- function($, _, q, firebase, handlebars, bootstrap, material, dropdownjs, authenticate, hbsTemplateLoad, firebaseAccess, filterSongs) {
+require(["jquery", "lodash", "q", "firebase", "hbs", "bootstrap", "material", "authenticate", "hbsTemplateLoad", "firebaseAccess", "filterSongs"],
+ function($, _, q, firebase, handlebars, bootstrap, material, authenticate, hbsTemplateLoad, firebaseAccess, filterSongs) {
 
 $(document).ready(function(){
 
@@ -33,7 +33,7 @@ $(document).ready(function(){
   var songs;
   var allSongsArray = [];
 
-  // authenticate.loginUser("mncross@gmail.com", "abc123");
+  authenticate.loginUser("mncross@gmail.com", "abc123");
 
   firebaseRef.child("songs").on("value", function(mycurrentstuff) {
     songs = mycurrentstuff.val();
