@@ -3,8 +3,9 @@
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="stylesheet" href="lib/bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="lib/bower_components/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="lib/bower_components/bootstrap-material-design/dist/css/material-fullpalette.min.css">
+  <link rel="stylesheet" type="text/css" href="/lib/bower_components/dropdown.js/jquery.dropdown.css">
   <link rel="stylesheet" type="text/css" href="styles/css/main.css">
 
   <title>Music History</title>
@@ -71,27 +72,9 @@
     </div>
  -->
 
-     <section class="col-md-12">
-      <div class="btn-group">
-        <button type="button" class="btn btn-default">Artist</button>
-        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <span class="caret"></span>
-          <span class="sr-only">Toggle Dropdown</span>
-        </button>
-        <ul class="dropdown-menu" id="artistMenu"></ul>
-      </div>
-    </section>
+    <select id="artistMenu" class="form-control select" placeholder="Artist"></select>
 
-    <section class="col-md-offset-2 col-md-offset-8">
-      <div class="btn-group">
-        <button type="button" class="btn btn-default">Album</button>
-        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <span class="caret"></span>
-          <span class="sr-only">Toggle Dropdown</span>
-        </button>
-        <ul class="dropdown-menu" id="albumMenu"></ul>
-      </div>
-    </section>
+    <select id="albumMenu" class="form-control select" placeholder="Album"></select>
 
     <button class="btn btn-material-orange btn-raised col-md-offset-2 col-md-8" id="clearFilter">Clear Filter</button>
 
