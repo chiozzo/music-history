@@ -61,6 +61,7 @@ $(document).ready(function(){
   //click event to filter based on artist
   $("#artistMenu").on("click", "option", function() {
     var selectedArtist = $(this).text();
+    console.log("selectedArtist", selectedArtist);
     filterSongs.byArtist(selectedArtist, allSongsArray);
   });
 
