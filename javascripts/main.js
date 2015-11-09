@@ -43,11 +43,11 @@ $(document).ready(function(){
 
 
   $(".modal-footer").on("click", "#add-song", function() {
-    if($("#new-artist").val() == "") {
+    if($("#new-artist").val() === "") {
       alert("You need to enter an artist");
-    } else if ($("#new-album").val() == "") {
+    } else if ($("#new-album").val() === "") {
       alert("You need to enter an album");
-    } else if ($("#new-song").val() == "") {
+    } else if ($("#new-song").val() === "") {
       alert("You need to enter a song title");
     } else {
       console.log("add song button clicked");
