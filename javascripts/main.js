@@ -35,7 +35,7 @@ $(document).ready(function(){
 
   authenticate.loginUser("mncross@gmail.com", "abc123");
 
-  firebaseRef.child("songs").on("value", function(mycurrentstuff) {
+  firebaseRef.child("users").child(firebaseRef.getAuth().uid).child("songs").on("value", function(mycurrentstuff) {
     songs = mycurrentstuff.val();
     allSongsArray = _.values(songs);
     filterSongs.showAll(songs, allSongsArray);
