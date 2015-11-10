@@ -30,10 +30,11 @@ define(["jquery", "firebase"], function($, firebase) {
 			};
 
 			$.ajax({
-				url: "https://blinding-heat-7542.firebaseio.com/songs.json",
+				url: "https://blinding-heat-7542.firebaseio.com/users/" + firebaseRef.getAuth().uid + "/songs.json",
 				method: "POST",
 				data: JSON.stringify(newSong)
 			}).done(function(addedSong) {
+				console.log("addedSong", addedSong);
 			}).fail(function(){
 				console.log("Add song failed");
 			});
